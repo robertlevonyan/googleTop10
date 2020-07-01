@@ -16,4 +16,3 @@ val dataModule = module {
 
     single<SearchRepository> { SearchRepositoryImpl(get(), get()) }
 }
-
