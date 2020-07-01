@@ -1,0 +1,5 @@
+<resources>
+    <string name="label_search">Search</string>
+    <string name="hint_search">Search text</string>
+    <string name="error_search">Something went wrong</string>
+</resources>
