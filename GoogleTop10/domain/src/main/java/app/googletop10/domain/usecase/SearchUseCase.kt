@@ -1,10 +1,10 @@
 package app.googletop10.domain.usecase
 
-import app.googletop10.entity.ActionResult
 import app.googletop10.entity.responses.SearchItem
+import io.reactivex.Flowable
 
 interface SearchUseCase {
-    suspend fun search(text: String): ActionResult<List<SearchItem>>
+  fun search(text: String): Flowable<List<SearchItem>>
 
-    suspend fun getSavedSearches(): List<SearchItem>
+  fun getSavedSearches(): Flowable<List<SearchItem>>
 }

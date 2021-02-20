@@ -3,6 +3,7 @@ package app.googletop10.data.api
 import okhttp3.ConnectionSpec
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -13,6 +14,7 @@ class RetrofitClient private constructor() {
         fun getClient(): Retrofit = retrofit ?: Retrofit.Builder().run {
             baseUrl("https://www.googleapis.com/")
             addConverterFactory(GsonConverterFactory.create())
+            addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             client(getOkHttpClient())
             build().also { retrofit = it }
         }

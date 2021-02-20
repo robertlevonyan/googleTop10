@@ -1,15 +1,17 @@
 package app.googletop10.domain.repository
 
-import app.googletop10.entity.ActionResult
 import app.googletop10.entity.responses.SearchItem
 import app.googletop10.entity.responses.SearchResponse
+import io.reactivex.Completable
+import io.reactivex.Flowable
+import io.reactivex.Single
 
 interface SearchRepository {
-    suspend fun search(text: String): ActionResult<SearchResponse>
+  fun search(text: String): Flowable<SearchResponse>
 
-    suspend fun getLastSearchResults(): List<SearchItem>
+  fun getLastSearchResults(): Flowable<List<SearchItem>>
 
-    suspend fun saveSearchResults(results: List<SearchItem>)
+  fun saveSearchResults(results: List<SearchItem>): Completable
 
-    suspend fun clearSearchResults()
+  fun clearSearchResults(): Single<Int>
 }
